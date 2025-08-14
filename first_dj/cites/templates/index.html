@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {%if hour > 6 and hour < 12%}
+    <h2>Dobroe ytro</h2>
+    {%elif hour >= 12 and hour < 18%}
+    <h2>Dobroe day</h2>
+    {%else %}
+    <h2>Dobroe vecher</h2>
+    {%endif%}
+
+
+
+    <h1>{{hour}}</h1>
+    <h3>главная</h3><h1 style="color:red"><h> главная</h1> 
+                            <li><a href= "{% url 'football'%}">футбол</a></li>
+                            <li><a href= "http://127.0.0.1:8000/hoskey">хокей</a></li>
+                            <li><a href= "http://127.0.0.1:8000/basketball">баскетбол</a></li>
+    
+</body>
+</html>

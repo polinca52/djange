@@ -17,10 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 #from first_app.views import branches_piter, branches_moscow, index,news,branches, first_news, managment, about, contacts
-from cites.views import history, cities, facts, index, cities_piter, cities_moscow
+#from cites.views import history, cities, facts, index, cities_piter, cities_moscow
+from cites.views import football, index, recipe
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', recipe),
     path('', index),
     #path('news/first_news', first_news),
     #re_path(r'^news/', news),
@@ -32,9 +34,13 @@ urlpatterns = [
     #re_path(r'^branches/', branches),
     #path('today/', today),
     #path('punch/', punch)
-    path('history', history),
-    path('cities', cities),
-    path('facts', facts),
-    path('cities/piter', cities_piter),
-    path('cities/moscow', cities_moscow)
+    ##path('history', history),
+    ##path('cities', cities),
+    ##path('facts', facts),
+    ##path('cities/piter', cities_piter),
+    ##path('cities/moscow', cities_moscow)
+    #path('basketball', basketball),
+    #path('hoskey', hoskey),
+    path('/football',football, name='football'),
+    
 ]
