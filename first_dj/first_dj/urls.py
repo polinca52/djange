@@ -18,12 +18,14 @@ from django.contrib import admin
 from django.urls import path, re_path
 #from first_app.views import branches_piter, branches_moscow, index,news,branches, first_news, managment, about, contacts
 #from cites.views import history, cities, facts, index, cities_piter, cities_moscow
-from cites.views import football, index, recipe
+#from cites.views import football, index, recipe
+from first_app.views import user_form, index, user
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', recipe),
-    path('', index),
+    #path('admin/', admin.site.urls),
+    #path('', recipe),  
+    
     #path('news/first_news', first_news),
     #re_path(r'^news/', news),
     #path('managment', managment),
@@ -41,6 +43,8 @@ urlpatterns = [
     ##path('cities/moscow', cities_moscow)
     #path('basketball', basketball),
     #path('hoskey', hoskey),
-    path('/football',football, name='football'),
-    
+    #path('/football',football, name='football'),
+    path('', index),
+    path('user/', user, name='registration')
+   
 ]
