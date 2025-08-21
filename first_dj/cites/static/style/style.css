@@ -1,0 +1,11 @@
+.btn{
+    padding: 15px;
+    background-color: brown;
+    margin: 40px;
+    border-radius: 15px;
+    width: fit-content;
+}
+
+.btn>a{
+    color: aliceblue;
+}

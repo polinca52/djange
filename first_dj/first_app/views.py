@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from .forms import Registr
 
 def user(request):
-    if request_method == 'POST':
+    if request.method == 'POST':
         start = request. POST_get('start', "None")
         finish = request. POST_get('Finish', "None") 
         return HttpResponse(f" {start}, {finish}")
@@ -17,7 +17,7 @@ def func(start, finish):
         
         else:
             list_num.appnd(num)
-            
+    return list_num
 
 ##def news(request):
 ##    return HttpResponse('<h3>новости</h3> <ul><li>новости</il><li>новости</il><li>новости</il></ul>')

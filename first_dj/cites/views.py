@@ -33,25 +33,44 @@ from django.shortcuts import render, HttpResponse
 #def index(request):
 #    return render(request,'index.html')
 
+from .forms import FormOrder
 from datetime import datetime  
+from datetime import datetime
+from .models import Order
+
 
 def index(request):
-        return render(request, 'index.html', context={'hour':hour})
-current_time = datetime.now().time()
-hour = int(current_time.strftime("%H"))
+      orders = Order.objects.all()
+      return render(request, 'index.html', context={'orders':orders})
 
-def football(request):
-    return render(request,'football.html')
-
-list_pro= [['томаты','мясо','перец','лук'],['картофель','тесто','сметана']]
-
-def recipe(request):
-      dish = request.GET.get('recipe')
-      if dish == 'gouiash':
-            list_ingr = list_pro[0]
+def form_order(request):
+      if request.method == 'POST':
+            name = request.POST.get('name')
+            last_name = request.POST.get('f_name')
+            email = request.POST.get('email')
+            product = request.POST.get('product')
+            order = Order.objects.create(name=name, f_name = last_name, email = email, product = product)
+            order.save()
+            return render(request, 'index.html',)
       else:
-            list_ingr= list_pro[1]
-      return render(request, 'recipe.html', context={'title':dish, 'list_ingr':list_ingr})
+            form = FormOrder()
+            return render(request, 'form.html', context={'form':form})
+
+
+
+
+#def football(request):
+#    return render(request,'football.html')
+
+#list_pro= [['томаты','мясо','перец','лук'],['картофель','тесто','сметана']]
+
+#def recipe(request):
+#      dish = request.GET.get('recipe')
+#      if dish == 'gouiash':
+#            list_ingr = list_pro[0]
+#      else:
+#            list_ingr= list_pro[1]
+#      return render(request, 'recipe.html', context={'title':dish, 'list_ingr':list_ingr})
 
 
 
